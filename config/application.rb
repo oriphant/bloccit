@@ -34,4 +34,3 @@ module Bloccit
   end
 end
 
-gem 'rails_12factor', group: :production
