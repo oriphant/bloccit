@@ -16,3 +16,20 @@
  *= require_tree .
  *= require_self
  */
+
+.social-btn {
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  background: rgb(28, 184, 65);
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px
+  rgba(0, 0, 0, 0.2);
+  font-size: 300%;
+  margin: 30px 30px 30px 30px; /* does not seem to be working*/
+  padding: 10px 10px 10px 10px;
+  height: 1000px; /* does not seem to be working*/
+  width: 1000px; /* does not seem to be working*/
+  }
+
+  
