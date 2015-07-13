@@ -16,6 +16,17 @@
      body: Faker::Lorem.paragraph
    )
  end
+
+if Post.where(title:"A Unique Entry").exists?
+  p "Already exists"
+else
+ Post.create!(
+  title: "A Unique Entry",
+  body: "The fox jumped over the cat"
+)
+end
+
+
  
  puts "Seed finished"
  puts "#{Post.count} posts created"
