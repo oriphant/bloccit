@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :posts, :advertisements, :questions
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
-  get 'advertisement' =>'posts#advertisement'
+  # get 'advertisement' =>'posts#advertisement'
 
 
   root to: 'welcome#index'

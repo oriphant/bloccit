@@ -34,6 +34,13 @@ end
   )
 end
 
+30.times do
+  Advertisement.create!(
+    title: Faker::Lorem.sentence,
+    copy: Faker::Lorem.paragraph,
+    price: Faker::Number.digit
+  )
+end
 
 
  puts "Seed finished"
