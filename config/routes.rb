@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
 =begin
   get 'question/index'
   get 'question/show'
