@@ -46,6 +46,7 @@ if Post.where(title:"A Unique Entry").exists?
   p "Already exists"
 else
  Post.create!(
+  user: users.sample,
   title: "A Unique Entry",
   body: "The fox jumped over the cat"
 )
