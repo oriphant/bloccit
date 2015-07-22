@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params.require(:topic).permit(:name, :description, :public))
     authorize @topic
     if @topic.save
-      redirect_to @topic, notice: "Topic was successfullly saved"
+      redirect_to @topic, notice: "Topic was successfully saved."
     else
       flash[:error] = "Error creating topic.  Please try again."
       render :new
