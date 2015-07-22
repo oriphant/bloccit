@@ -1,8 +1,9 @@
 require 'faker'
 
   # Create Users
-    users = User.all
-   5.times do
+  users = User.all
+  
+  5.times do
      user = User.new(
        name:     Faker::Name.name,
        email:    Faker::Internet.email,
@@ -10,12 +11,22 @@ require 'faker'
      )
      user.skip_confirmation!
      user.save!
-   end
- 
+  end
 
+ # Create Topics
+  15.times do
+    Topic.create!(
+      name: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph
+      )
+  end
+  topics = Topic.all
+
+# Create Posts
  50.times do
    Post.create!(
      user: users.sample,
+     topic:  topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )

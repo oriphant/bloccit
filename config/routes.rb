@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-
-  devise_for :users
 =begin
+  get 'topics/index'
+  get 'topics/new'
+  get 'topics/show'
+  get 'topics/edit'
   get 'question/index'
   get 'question/show'
   get 'question/new'
@@ -12,8 +14,15 @@ Rails.application.routes.draw do
   get 'question/destroy'
   get 'question' => 'welcome#question'
 =end
+  
+  devise_for :users
 
-  resources :posts, :advertisements, :questions
+  resources :topics do
+    resources :posts, except:[:index]
+  end
+ 
+  resources :advertisements, :questions
+ 
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'
   # get 'advertisement' =>'posts#advertisement'
