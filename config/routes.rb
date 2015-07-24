@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'summaries/index'
+
+  get 'summaries/show'
+
 =begin
   get 'topics/index'
   get 'topics/new'
@@ -19,9 +23,10 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :posts, except:[:index]
+
   end
  
-  resources :advertisements, :questions
+  resources :advertisements, :questions, :summaries
  
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

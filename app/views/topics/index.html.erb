@@ -9,9 +9,7 @@
             <%= link_to topic.name, topic %>
           </h4>
           <small>
-             submitted <%=topic.description%> <br> <%= time_ago_in_words(topic.created_at) %> ago.
-
-
+             <%=topic.description%> <br> Submitted <%= time_ago_in_words(topic.created_at) %> ago.
           </small>
         </div>
       </div>
