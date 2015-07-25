@@ -1,5 +1,5 @@
 class CreateQuestions < ActiveRecord::Migration
-  def change
+  # def change
 
     # create_table :questions do |t|
     #   t.string :title
@@ -7,6 +7,6 @@ class CreateQuestions < ActiveRecord::Migration
     #   t.boolean :resolved
 
     #   t.timestamps null: false
-    end
-  end
+  #   end
+   # end
 end
