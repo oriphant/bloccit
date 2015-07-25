@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :posts, except:[:index]
   end
  
-  resources :advertisements, :questions
+  resources :advertisements
  
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

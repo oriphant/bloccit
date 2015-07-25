@@ -53,14 +53,6 @@ else
 end
 
 30.times do
-  Question.create!(
-    title: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph,
-    resolved: false
-  )
-end
-
-30.times do
   Advertisement.create!(
     title: Faker::Lorem.sentence,
     copy: Faker::Lorem.paragraph,
