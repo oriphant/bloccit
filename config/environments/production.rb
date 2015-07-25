@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # Enable config.force_ssl to force Bloccit to encrypt app transactions like form submissions, authentication and following links. Heroku supports SSL encryption by default with all .herokuapp.com" domains and does not require you to purchase an SSL certificate.
-   config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
