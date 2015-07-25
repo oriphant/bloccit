@@ -42,7 +42,6 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # Enable config.force_ssl to force Bloccit to encrypt app transactions like form submissions, authentication and following links. Heroku supports SSL encryption by default with all .herokuapp.com" domains and does not require you to purchase an SSL certificate.
   config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
@@ -79,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #http://bloccit.herokuapp.com
-  config.action_mailer.default_url_options ={host: 'ralbloccit.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'ralbloccit.herokuapp.com' }
 end
