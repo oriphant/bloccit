@@ -1,7 +1,17 @@
 <h1>Summary of All Posts</h1>
 
-    <% @topics.each do|topic| %>
-            <%= link_to topic.name, topic %>
-    <%end%>
+<div>
+<% @topics.each do|topic| %>
+  <%= link_to topic.name, topic %>
+  <br/>
+<%end%>
+</div>
+<br/>
+<div>
+<% @posts.each do|post| %>
+  <%= link_to post.title, topic_post_path(post.topic, post) %>
+  <br/>
+<%end%>
+</div>
 
 

@@ -48,7 +48,8 @@ else
  Post.create!(
   user: users.sample,
   title: "A Unique Entry",
-  body: "The fox jumped over the cat"
+  body: "The fox jumped over the cat",
+  topic: topics.sample
 )
 end
 
