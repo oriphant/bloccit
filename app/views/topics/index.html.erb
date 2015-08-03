@@ -10,12 +10,11 @@
           </h4>
           <small>
              submitted <%=topic.description%> <br> <%= time_ago_in_words(topic.created_at) %> ago.
-
-
           </small>
         </div>
       </div>
     <%end%>
+    <%= will_paginate @topics %>
   </div>
 
   <div class="col-md-4">
