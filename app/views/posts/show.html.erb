@@ -8,6 +8,13 @@
         <%= @post.user.name %>
       </small>
     <p><%= markdown_to_html @post.body %></p>
+    
+        <%= image_tag(@post.imagepost.url) if @post.imagepost? %>
+        <div>
+          Submitted <%= time_ago_in_words(@post.created_at) %> ago by
+          <%= @post.user.name %>
+        </div>
+
   </div>
   
   <div class="col-md-4">

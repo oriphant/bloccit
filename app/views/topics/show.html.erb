@@ -12,6 +12,11 @@
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to (markdown_to_html post.title), [@topic,post]%>
+          
+                <%= image_tag(post.imagepost.url) if post.imagepost? %>
+<!--                 submitted <%= time_ago_in_words(post.created_at) %> ago by
+                <%= post.user.name %> -->
+          
           </h4>
           <small>
             <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
