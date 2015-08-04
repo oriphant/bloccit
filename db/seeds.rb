@@ -14,7 +14,7 @@ require 'faker'
   end
 
  # Create Topics
-  15.times do
+  1000.times do
     Topic.create!(
       name: Faker::Lorem.sentence,
       description: Faker::Lorem.paragraph
@@ -23,7 +23,7 @@ require 'faker'
   topics = Topic.all
 
 # Create Posts
- 50.times do
+ 1000.times do
    Post.create!(
      user: users.sample,
      topic:  topics.sample,
@@ -42,23 +42,23 @@ require 'faker'
    )
  end
 
-if Post.where(title:"A Unique Entry").exists?
-  p "Already exists"
-else
- Post.create!(
-  user: users.sample,
-  title: "A Unique Entry",
-  body: "The fox jumped over the cat"
-)
-end
+# if Post.where(title:"A Unique Entry").exists?
+#   p "Already exists"
+# else
+#  Post.create!(
+#   user: users.sample,
+#   title: "A Unique Entry",
+#   body: "The fox jumped over the cat"
+# )
+# end
 
-30.times do
-  Advertisement.create!(
-    title: Faker::Lorem.sentence,
-    copy: Faker::Lorem.paragraph,
-    price: Faker::Number.digit
-  )
-end
+# 30.times do
+#   Advertisement.create!(
+#     title: Faker::Lorem.sentence,
+#     copy: Faker::Lorem.paragraph,
+#     price: Faker::Number.digit
+#   )
+# end
 
 # user = User.first
 # user.skip_reconfirmation!
@@ -67,34 +67,34 @@ end
 #     password: 'helloworld'
 #   )
 
-# Create an admin user
-admin = User.new(
-  name: 'Admin Man',
-  email: 'admin@example.com',
-  password: 'helloworld',
-  role: 'admin'
-  )
-admin.skip_confirmation!
-admin.save!
+# # Create an admin user
+# admin = User.new(
+#   name: 'Admin Man',
+#   email: 'admin@example.com',
+#   password: 'helloworld',
+#   role: 'admin'
+#   )
+# admin.skip_confirmation!
+# admin.save!
 
-# Create a moderator
-moderator = User.new(
-  name: 'Mod Man',
-  email: 'moderator@example.com',
-  password: 'helloworld',
-  role: 'moderator'
-  )
-moderator.skip_confirmation!
-moderator.save!
+# # Create a moderator
+# moderator = User.new(
+#   name: 'Mod Man',
+#   email: 'moderator@example.com',
+#   password: 'helloworld',
+#   role: 'moderator'
+#   )
+# moderator.skip_confirmation!
+# moderator.save!
 
-#Create a member
-member = User.new(
-  name: 'Member Man',
-  email: 'member@example.com',
-  password: 'helloworld'
-  )
-member.skip_confirmation!
-member.save!
+# #Create a member
+# member = User.new(
+#   name: 'Member Man',
+#   email: 'member@example.com',
+#   password: 'helloworld'
+#   )
+# member.skip_confirmation!
+# member.save!
 
  puts "Seed finished"
  puts "#{User.count} users created"
