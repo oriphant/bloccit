@@ -2,7 +2,7 @@ require 'faker'
 
   # Create Users
   users = User.all
-  
+
   5.times do
      user = User.new(
        name:     Faker::Name.name,
@@ -14,19 +14,19 @@ require 'faker'
   end
 
  # Create Topics
-  1000.times do
-    Topic.create!(
-      name: Faker::Lorem.sentence,
-      description: Faker::Lorem.paragraph
-      )
-  end
+  # 1000.times do
+  #   Topic.create!(
+  #     name: Faker::Lorem.sentence,
+  #     description: Faker::Lorem.paragraph
+  #     )
+  # end
   topics = Topic.all
 
 # Create Posts
  1000.times do
    Post.create!(
      user: users.sample,
-     topic:  topics.sample,
+     topic:  topics.find(1),
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
