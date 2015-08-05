@@ -1,8 +1,7 @@
 
     <%=form_for [topic, post] do |f| %>
-      <% if post.errors.any? %>
+      <% if comment.errors.any? %>
         <div class="alert alert-danger">
-          <h4>There are <%= pluralize(post.errors.count,"error")%>.</h4>
             <ul>
               <%post.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -11,24 +10,6 @@
           </div>
           <%end%>
           
-          <%= form_group_tag(post.errors[:title]) do %>
-            <%= f.label :title %>
-            <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
-          <%end%>
-
-          <%= form_group_tag(post.errors[:body]) do %>
-            <%= f.label :body %>
-            <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
-          <%end%>
-
-            <div class="form-group">
-
-              <%= f.label :imagepost %>
-              <%= f.file_field :imagepost %>
-              <%= f.hidden_field :imagepost_cache %>
-            
-            </div>
-
 <!-- ~~~~~~~~~~ CP46 Code ~~~~~~~~~~ -->
             <div>
               <%= form_group_tag(post.errors[:comment]) do %>
