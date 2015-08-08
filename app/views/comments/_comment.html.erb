@@ -1,0 +1,15 @@
+      <% @comments.each do |comment|%>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to (markdown_to_html post.title.comment), [@post,comment]%>          
+          </h4>
+          <small>
+            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+            submitted <%= time_ago_in_words(comment.created_at) %> ago by 
+            <%= post.user.name %><br>
+            <%= post.comments.count %> Comments
+          </small>
+        </div>
+      </div>
+    <%end%>

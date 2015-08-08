@@ -14,8 +14,6 @@
             <%= link_to (markdown_to_html post.title), [@topic,post]%>
           
                 <%= image_tag(post.imagepost.url) if post.imagepost? %>
-<!--                 submitted <%= time_ago_in_words(post.created_at) %> ago by
-                <%= post.user.name %> -->
           
           </h4>
           <small>

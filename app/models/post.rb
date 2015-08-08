@@ -12,7 +12,7 @@
 #
 
 class Post < ActiveRecord::Base
-  has_many:comments
+  has_many :comments
   mount_uploader :imagepost, ImagePostUploader
   belongs_to :user
   belongs_to :topic

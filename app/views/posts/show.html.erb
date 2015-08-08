@@ -1,6 +1,7 @@
 <h1><%= markdown_to_html @post.title %></h1>
 
 <div class="row">
+  <!-- Start of Avatar Code -->
   <div class="col-md-8">
       <small>
         <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
@@ -8,15 +9,19 @@
         <%= @post.user.name %>
       </small>
     <p><%= markdown_to_html @post.body %></p>
-    
         <%= image_tag(@post.imagepost.url) if @post.imagepost? %>
         <div>
           Submitted <%= time_ago_in_words(@post.created_at) %> ago by
           <%= @post.user.name %>
         </div>
-
   </div>
-  
+  <!-- End of Avatar Code -->
+
+  <!-- Start of Comments Code -->
+    <%= render partial: "comments/comment", locals: { topic: @topic, post: @post, comment: @comment } %>
+    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+  <!-- End of Comments Code -->
+
   <div class="col-md-4">
   <% if policy(@post).edit? %>
     <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
