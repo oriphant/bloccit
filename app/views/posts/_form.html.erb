@@ -22,22 +22,11 @@
           <%end%>
 
             <div class="form-group">
-
               <%= f.label :imagepost %>
               <%= f.file_field :imagepost %>
               <%= f.hidden_field :imagepost_cache %>
-            
             </div>
 
-<!-- ~~~~~~~~~~ CP46 Code ~~~~~~~~~~ -->
-            <div>
-              <%= form_group_tag(post.errors[:comment]) do %>
-                <%= f.label :comment %>
-                <%= f.text_area :comment, class: 'form-control', placeholder: "Add a comment" %>
-                <%= f.submit "Save", class: 'btn btn-success' %>
-              <%end%>
-            </div>
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
           <div class="form-group">
             <%= f.submit "Save", class: 'btn btn-success' %>

@@ -3,30 +3,47 @@
 <div class="row">
   <!-- Start of Avatar Code -->
   <div class="col-md-8">
+
+      <p><%= markdown_to_html @post.body %></p>
+      <%= image_tag(@post.imagepost.url) if @post.imagepost? %>
+      
       <small>
-        <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-        submitted <%= time_ago_in_words(@post.created_at) %> ago by
-        <%= @post.user.name %>
-      </small>
-    <p><%= markdown_to_html @post.body %></p>
-        <%= image_tag(@post.imagepost.url) if @post.imagepost? %>
-        <div>
+        <em>
+          <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
           Submitted <%= time_ago_in_words(@post.created_at) %> ago by
           <%= @post.user.name %>
-        </div>
+      </em>
+      </small>
   </div>
-  <!-- End of Avatar Code -->
 
-  <!-- Start of Comments Code -->
-    <%= render partial: "comments/comment", locals: { topic: @topic, post: @post, comment: @comment } %>
-    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
-  <!-- End of Comments Code -->
+  <!-- End of Avatar Code -->
 
   <div class="col-md-4">
   <% if policy(@post).edit? %>
     <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
   <% end %>
   </div>
+  
+
+  <!-- Start of Comments Code -->
+    
+  <div class="col-md-8">
+    </br>
+    <h4>Comments</h4>
+    <%= render partial: "comments/comment", locals: { topic: @topic, post: @post, comment: @comment}, collection: @comments  %>
+        
+        <small>
+          <em>
+            <%= @post.comments.count %> Comments
+          </em>
+        </small>
+
+      </br>
+      </br>
+    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+  </div>
+
+  <!-- End of Comments Code -->
 
 </div>
 

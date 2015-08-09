@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  topic_id   :integer
+#  imagepost  :string
 #
 
 class Post < ActiveRecord::Base
