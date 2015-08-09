@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if policy(Comment.new).create? %>
   <%=form_for [topic, post, comment] do |f| %>
     <h4>Add A Comment </h4>
     <div>
