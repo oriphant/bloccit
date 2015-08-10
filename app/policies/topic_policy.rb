@@ -10,4 +10,8 @@
     def update?
       create?
     end
+
+    def destroy?
+      update?
+    end
   end
