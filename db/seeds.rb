@@ -33,40 +33,32 @@ require 'faker'
  end
  posts = Post.all
 
- # Create Comments
+# Create Comments
  100.times do
    Comment.create!(
-     # user: users.sample,   # we have not yet associated Users with Comments
+     #user: users.sample,   
      post: posts.sample,
      body: Faker::Lorem.paragraph
    )
  end
 
-if Post.where(title:"A Unique Entry").exists?
-  p "Already exists"
-else
- Post.create!(
-  user: users.sample,
-  title: "A Unique Entry",
-  body: "The fox jumped over the cat"
-)
-end
+# Create Summaries
+  100.times do
+   Summary.create!(
+     title:  Faker::Lorem.sentence,
+     body:   Faker::Lorem.paragraph
+   )
+ end
 
-30.times do
-  Question.create!(
-    title: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph,
-    resolved: false
-  )
-end
-
-30.times do
-  Advertisement.create!(
-    title: Faker::Lorem.sentence,
-    copy: Faker::Lorem.paragraph,
-    price: Faker::Number.digit
-  )
-end
+# if Post.where(title:"A Unique Entry").exists?
+#   p "Already exists"
+# else
+#  Post.create!(
+#   user: users.sample,
+#   title: "A Unique Entry",
+#   body: "The fox jumped over the cat"
+# )
+# end
 
 # user = User.first
 # user.skip_reconfirmation!

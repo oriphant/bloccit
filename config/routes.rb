@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :topics do
-    resources :posts, except:[:index]
+    resources :posts, except:[:index] do
+      resources :summary, only:[:show, :create]
+    end
   end
  
   resources :advertisements, :questions
