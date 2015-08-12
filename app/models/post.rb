@@ -19,6 +19,12 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   mount_uploader :imagepost, ImagePostUploader
 
+# Need to double check this
+  def after_create
+    votes.new(value: 1)
+  end
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+
   def up_votes
     votes.where(value: 1).count
   end
