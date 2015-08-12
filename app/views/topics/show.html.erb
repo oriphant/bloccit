@@ -9,12 +9,12 @@
     <p class="lead"><%=@topic.description%></p>
     <% @posts.each do |post|%>
       <div class="media">
+        <%= render partial: 'votes/voter', locals: {post: post}%>
+        
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to (markdown_to_html post.title), [@topic,post]%>
-          
-                <%= image_tag(post.imagepost.url) if post.imagepost? %>
-          
+            <%= link_to (markdown_to_html post.title), [@topic,post]%> 
+            <%= image_tag(post.imagepost.url) if post.imagepost? %> 
           </h4>
           <small>
             <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
