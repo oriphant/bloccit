@@ -18,12 +18,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   mount_uploader :imagepost, ImagePostUploader
-
-# Need to double check this
-  def after_create
-    votes.new(value: 1)
-  end
-# ~~~~~~~~~~~~~~~~~~~~~~~~
+  after_create :create_vote
 
   def up_votes
     votes.where(value: 1).count
@@ -40,7 +35,6 @@ class Post < ActiveRecord::Base
   def update_rank
     age_in_days = (created_at - Time.new(1970,1,1)) / (60*60*24)
     new_rank = points + age_in_days
-
     update_attribute(:rank, new_rank)
   end
   
@@ -50,5 +44,13 @@ class Post < ActiveRecord::Base
   validates :body, length:{minimum: 20}, presence: true
   # validates :topic, presence: true
   # validates :user, presence: true
+
+  private
+  # Need to double check this
+  def create_vote
+      user.votes.create(value: 1, post: self)
+  end
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 end
