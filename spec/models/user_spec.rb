@@ -25,27 +25,16 @@
 #  email_favorites        :boolean          default(TRUE)
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :posts, dependent: :destroy 
-  has_many :comments, dependent: :destroy
-  has_many :votes, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  mount_uploader :avatar, AvatarUploader
+require 'rails_helper'
 
-  def admin?
-    role == 'admin'
-  end
+describe User do
+  include TestFactories
 
-  def moderator?
-    role == 'moderator'
-  end
+  describe "#favorited(post)" do
+    xit "returns 'nil' if the user has not favorited the post" do
+    end
 
-  def favorited(post)
-    favorites.where(post_id: post.id).first
+    xit "returns the appropriate favorite if it exists" do
+    end
   end
-  
 end

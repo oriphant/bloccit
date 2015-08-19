@@ -10,6 +10,7 @@
 #  user_id    :integer
 #  topic_id   :integer
 #  imagepost  :string
+#  rank       :float
 #
 
 class Post < ActiveRecord::Base
@@ -17,6 +18,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   mount_uploader :imagepost, ImagePostUploader
 
   def up_votes
