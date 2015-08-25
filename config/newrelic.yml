@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: 1c8c30e33a672052e9a661b64c4815da7b1d1c55
+  license_key: 79680ee88a129618ccc984e23bb133da61d4bbc2
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
