@@ -19,11 +19,9 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :posts, except:[:index] do
-      resources :summary, only:[:show, :create]
+      resources :summaries, only:[:show, :create, :edit, :new]
     end
   end
- 
-  resources :advertisements, :questions
  
   get 'about' => 'welcome#about'
   get 'contact' => 'welcome#contact'

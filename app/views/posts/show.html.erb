@@ -12,12 +12,20 @@
   </div>
   
   <div class="col-md-8">
-    <p><%= @post.summary.title %></p>
+  <h1>Summary</h1>  
+    <h3><%= @summary.title %></h3>
+    <p><%= @summary.body %></p>
+  </div>
+
+  <div class="col-md-4">
+  <% if policy(Summary.new).create? %>
+    <%= link_to "Create Summary", new_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
+  <% end %>
   </div>
 
   <div class="col-md-4">
   <% if policy(@summary).edit? %>
-    <%= link_to "Create Summary", [@topic, @post, @summary], class: 'btn btn-success' %>
+    <%= link_to "Edit Summary", edit_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
   <% end %>
   </div>
 

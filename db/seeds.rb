@@ -100,3 +100,4 @@ member.save!
  puts "#{User.count} users created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ puts "#{Summary.count} summaries created"
