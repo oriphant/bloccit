@@ -1,8 +1,9 @@
 require 'faker'
 
-  # Create Users
   users = User.all
-  
+  posts = Post.all
+
+  # Create Users  
   5.times do
      user = User.new(
        name:     Faker::Name.name,
@@ -31,7 +32,6 @@ require 'faker'
      body:   Faker::Lorem.paragraph
    )
  end
- posts = Post.all
 
 # Create Comments
  100.times do
@@ -45,6 +45,7 @@ require 'faker'
 # Create Summaries
   100.times do
    Summary.create!(
+     post: posts.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )

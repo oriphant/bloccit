@@ -1,5 +1,11 @@
 class SummariesController < ApplicationController
 
+  def show
+    @topic=Topic.find(params[:topic_id])
+    @post=Post.find(params[:id])
+    @summary=@post.summary
+  end
+
   def new
     @post=Post.find(params[:post_id])
     @summary = Summary.new
@@ -7,6 +13,7 @@ class SummariesController < ApplicationController
   end
 
   def create
+    @topic =Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @summary = Summary.new(params.require(:summary).permit(:title, :body))
 
@@ -18,16 +25,24 @@ class SummariesController < ApplicationController
       redirect_to [@topic, @post]
     end
   end
+  
+  def update
+    @post = Post.find(params[:post_id])
+    @summary = Summary.find(params[:id])
+    authorize @summary
 
-  def show
-    @topic=Topic.find(params[:topic_id])
-    @post=Post.find(params[:id])
-    @summary=@post.summary
+    if @summary.update_attributes(params.require(:summary).permit(:title, :body))
+      flash[:notice] = "Your summary was updated."
+      redirect_to [@topic.post, @post]
+    else
+      flash[:error] = "There was an error updating the summary.  Please try again"
+      redirect_to [@topic.post, @post]
+    end
   end
 
   def edit
     @topic =Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     @summary = Summary.find(params[:id])
     authorize @post
   end
