@@ -38,8 +38,9 @@
   <div class="col-md-8">
     </br>
     <h4>Comments</h4>
-    <%= render partial: "comments/comment", locals: { topic: @topic, post: @post, comment: @comment}, collection: @comments  %>
-        
+    <div class='js-comments'>
+      <%= render partial: "comments/comment", locals: { topic: @topic, post: @post, comment: @comment}, collection: @comments  %>
+    </div>
         <small>
           <em>
             <div class='js-comments-count'><%= pluralize(@post.comments.count, 'Comment') %></div>
@@ -48,7 +49,9 @@
 
       </br>
       </br>
-    <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+    <div class='new-comment'>
+      <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+    </div>
   </div>
 
 </div>
