@@ -31,6 +31,6 @@ class Comment < ActiveRecord::Base
     user_id != favorite.user_id && favorite.user.email_favorites?
   end
 
-  default_scope {order('updated_at DESC')}
+  default_scope {order('updated_at ASC')}
   
 end
