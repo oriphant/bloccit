@@ -42,7 +42,7 @@
         
         <small>
           <em>
-            <%= @post.comments.count %> Comments
+            <div class='js-comments-count'><%= pluralize(@post.comments.count, 'Comment') %></div>
           </em>
         </small>
 

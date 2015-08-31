@@ -7,14 +7,11 @@ class CommentsController < ApplicationController
  
     if @comment.save
       flash[:notice] = "Comment was saved."
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error saving the comment.  Please try again"
+      redirect_to [@post.topic, @post]
     end
-
-    respond_to do |format|
-      format.html
-      format.js
-    end    
   end
 
   def destroy
@@ -24,10 +21,13 @@ class CommentsController < ApplicationController
  
     if @comment.destroy
       flash[:notice] = "Comment was deleted."
-      redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error deleting the comment.  Please try again"
-      redirect_to [@post.topic, @post]
+    end
+
+    respond_to do |format|
+    format.html
+    format.js
     end
   end
 
