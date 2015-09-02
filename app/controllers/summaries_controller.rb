@@ -15,7 +15,7 @@ class SummariesController < ApplicationController
   def create
     @topic =Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
-    @summary = Summary.new(params.require(:summary).permit(:title, :body))
+    @summary = @post.build_summary(summary_params)
 
     if @summary.save
       flash[:notice] = "Your summary was saved."
@@ -32,7 +32,7 @@ class SummariesController < ApplicationController
     @summary = Summary.find(params[:id])
     authorize @summary
 
-    if @summary.update_attributes(params.require(:summary).permit(:title, :body))
+    if @summary.update_attributes(summary_params)
       flash[:notice] = "Your summary was updated."
       redirect_to [@post.topic, @post]
     else
@@ -46,6 +46,12 @@ class SummariesController < ApplicationController
     @post = Post.find(params[:post_id])
     @summary = Summary.find(params[:id])
     authorize @post
+  end
+
+  private
+
+  def summary_params
+    params.require(:summary).permit(:title, :body)
   end
 
 end

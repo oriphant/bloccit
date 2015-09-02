@@ -12,23 +12,27 @@
   </div>
   
   <div class="col-md-8">
-  <h1>Summary</h1>  
-  <!-- Big issues going on here.  Does this need to be @summary.post.title or @post.summary.title -->
-    <h3><%= @summary.title %></h3>
-    <p><%= @summary.body %></p>
-  </div>
+    <% if @summary %>
+      <h1>Summary</h1>  
+      <!-- Big issues going on here.  Does this need to be @summary.post.title or @post.summary.title -->
+        <h3><%= @summary.title %></h3>
+        <p><%= @summary.body %></p>
+      </div>
+      <div class="col-md-4">
+        <% if policy(@summary).edit? %>
+          <%= link_to "Edit Summary", edit_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    <% else %>
 
-  <div class="col-md-4">
-  <% if policy(Summary.new).create? %>
-    <%= link_to "Create Summary", new_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
-  <% end %>
-  </div>
+      <div class="col-md-4">
+      <% if policy(Summary.new).create? %>
+        <%= link_to "Create Summary", new_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
+      <% end %>
+      </div>
+    <% end %>
 
-  <div class="col-md-4">
-  <% if policy(@summary).edit? %>
-    <%= link_to "Edit Summary", edit_topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-success' %>
-  <% end %>
-  </div>
+  
 
 </div>
 

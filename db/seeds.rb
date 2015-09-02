@@ -43,13 +43,13 @@ require 'faker'
  end
 
 # Create Summaries
-  100.times do
-   Summary.create!(
-     post: posts.sample,
-     title:  Faker::Lorem.sentence,
-     body:   Faker::Lorem.paragraph
-   )
- end
+ #  100.times do
+ #   Summary.create!(
+ #     post: posts.sample,
+ #     title:  Faker::Lorem.sentence,
+ #     body:   Faker::Lorem.paragraph
+ #   )
+ # end
 
 # if Post.where(title:"A Unique Entry").exists?
 #   p "Already exists"
