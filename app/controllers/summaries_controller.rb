@@ -27,16 +27,17 @@ class SummariesController < ApplicationController
   end
   
   def update
+    @topic =Topic.find(params[:topic_id])
     @post = Post.find(params[:post_id])
     @summary = Summary.find(params[:id])
     authorize @summary
 
     if @summary.update_attributes(params.require(:summary).permit(:title, :body))
       flash[:notice] = "Your summary was updated."
-      redirect_to [@topic.post, @post]
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error updating the summary.  Please try again"
-      redirect_to [@topic.post, @post]
+      redirect_to [@post.topic, @post]
     end
   end
 
